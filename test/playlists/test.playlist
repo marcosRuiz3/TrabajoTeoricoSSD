@@ -1,0 +1,12 @@
+{
+  "id": "test_playlist",
+  "name": "Test Playlist",
+  "description": "Playlist for testing",
+  "owner": "pytest",
+  "created_at": "2025-01-01",
+  "track_ids":[
+    "1s.mp3",
+    "2s.mp3",
+    "4s.mp3"
+  ]
+}
