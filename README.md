@@ -3,4 +3,4 @@ Repositorio para el Trabajo Teórico de SSDD - Despliegue de Spotifice con IceGr
 
 PARTICIPANTES:
 - Marcos Ruiz Barrajón
-- Álvaro López-Tola
+- Álvaro López-Tola Rodríguez
