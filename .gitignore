@@ -1,0 +1,4 @@
+despliegue/db/
+*.log
+*.txt
+__pycache__/
