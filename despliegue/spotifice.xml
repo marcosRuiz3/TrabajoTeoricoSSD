@@ -1,0 +1,50 @@
+<icegrid>
+    <application name="SpotificeApp">
+
+        <server-template id="MediaServerTemplate">
+            <parameter name="index"/>
+            <server id="MediaServer${index}" activation="on-demand" exe="python3" pwd="../">
+                <option>media_server.py</option>
+                
+                <adapter name="MediaServerAdapter" endpoints="tcp" id="${server}.MediaServerAdapter">
+                    <object identity="mediaServer1"/> 
+                </adapter>
+                
+                <properties>
+                    <property name="MediaServer.Content" value="media"/>
+                    <property name="MediaServer.Playlists" value="playlists"/>
+                    <property name="MediaServer.UsersFile" value="users.json"/>
+                    <property name="Ice.Default.Locator" value="IceGrid/Locator:tcp -h 127.0.0.1 -p 4061"/>
+                    <property name="Ice.Stdout" value="server-out.txt"/>
+                    <property name="Ice.Stderr" value="server-err.txt"/>
+                </properties>
+            </server>
+        </server-template>
+
+        <server-template id="MediaRenderTemplate">
+            <parameter name="index"/>
+            <server id="MediaRender${index}" activation="on-demand" exe="python3" pwd="../">
+                <option>media_render.py</option>
+                
+                <adapter name="MediaRenderAdapter" endpoints="tcp" id="${server}.MediaRenderAdapter">
+                    <object identity="mediaRender1"/>
+                </adapter>
+                
+                <properties>
+                    <property name="Ice.Default.Locator" value="IceGrid/Locator:tcp -h 127.0.0.1 -p 4061"/>
+                    <property name="Ice.Stdout" value="render-out.txt"/>
+                    <property name="Ice.Stderr" value="render-err.txt"/>
+                </properties>
+            </server>
+        </server-template>
+
+        <node name="node1">
+            <server-instance template="MediaServerTemplate" index="1"/>
+        </node>
+
+        <node name="node2">
+            <server-instance template="MediaRenderTemplate" index="1"/>
+        </node>
+
+    </application>
+</icegrid>

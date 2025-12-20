@@ -345,11 +345,14 @@ def main(ic):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        sys.exit("Usage: media_server.py <config-file>")
+    # --- CORRECCIÓN: Borramos o comentamos el check de argumentos ---
+    # if len(sys.argv) < 2:
+    #    sys.exit("Usage: media_server.py <config-file>")
 
     try:
-        with Ice.initialize(sys.argv[1]) as communicator:
+        # AHORA SÍ: Pasamos 'sys.argv' completo.
+        # Ice detectará si hay fichero de config O si son propiedades de IceGrid.
+        with Ice.initialize(sys.argv) as communicator:
             main(communicator)
     except KeyboardInterrupt:
-        logger.info("Server interrupted by user.")
+        pass
