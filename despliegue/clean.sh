@@ -5,4 +5,4 @@ killall icegridregistry icegridnode python3 2>/dev/null
 echo "Limpiando bases de datos temporales..."
 rm -rf db/ *.txt
 
-echo "✅ Limpieza completada."
+echo "Limpieza completada."

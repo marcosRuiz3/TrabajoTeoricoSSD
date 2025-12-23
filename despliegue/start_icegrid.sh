@@ -25,4 +25,4 @@ icegridadmin --Ice.Default.Locator="IceGrid/Locator:tcp -h 127.0.0.1 -p 4061" \
              -u user -p pass \
              -e "application add spotifice.xml"
 
-echo "✅ ¡Sistema desplegado! Abre 'icegridgui' para verlo."
+echo "¡Sistema desplegado! Abre 'icegridgui' para verlo."
