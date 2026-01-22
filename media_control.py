@@ -91,7 +91,7 @@ def main(ic):
         print(f"\nObteniendo primera playlist: '{playlist_id}'")
         playlist = server.get_playlist(playlist_id)
         
-        print("\n--- 3. PROBANDO 'MediaRender' (Reproducción Segura) ---")
+        print("\n--- 3. PROBANDO 'MediaRender' ---")
         print(f"Cargando playlist '{playlist_id}'...")
         
         # El render internamente usará la 'session' que le pasamos en el bind
@@ -112,20 +112,19 @@ def main(ic):
         print("Parando...")
         render.stop()
 
-        # --- PASO 4: LIMPIEZA (HITO 2) ---
+        
         print("\n--- 4. CERRANDO SESIÓN ---")
         # Al desvincular, el render debería cerrar la sesión si lo implementamos así
         render.unbind_media_server()
         
-        # Opcionalmente, podemos cerrar la sesión explícitamente desde el cliente
-        # para probar que el método existe, aunque el render ya debería haberlo hecho.
+        
         try:
             session.close() 
             print("Sesión cerrada correctamente.")
         except Ice.ObjectNotExistException:
             print("La sesión ya fue cerrada por el render (Comportamiento correcto).")
 
-        print("\n--- ¡Prueba de Hito 2 superada! ---")
+        
 
     except Exception as e:
         print(f"\n--- !!! HA OCURRIDO UN ERROR !!! ---")
