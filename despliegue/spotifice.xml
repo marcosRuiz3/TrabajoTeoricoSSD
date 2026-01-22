@@ -17,6 +17,7 @@
                     <property name="Ice.Default.Locator" value="IceGrid/Locator:tcp -h 127.0.0.1 -p 4061"/>
                     <property name="Ice.Stdout" value="server-out.txt"/>
                     <property name="Ice.Stderr" value="server-err.txt"/>
+                    <property name="Ice.ServerIdleTime" value="10"/>
                 </properties>
             </server>
         </server-template>
@@ -34,6 +35,7 @@
                     <property name="Ice.Default.Locator" value="IceGrid/Locator:tcp -h 127.0.0.1 -p 4061"/>
                     <property name="Ice.Stdout" value="render-out.txt"/>
                     <property name="Ice.Stderr" value="render-err.txt"/>
+                    <property name="Ice.ServerIdleTime" value="10"/>
                 </properties>
             </server>
         </server-template>
